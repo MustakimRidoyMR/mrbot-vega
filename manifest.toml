@@ -1,0 +1,21 @@
+schema-version = 1
+
+[package]
+title = "MR Bot"
+version = "1.0.0"
+id = "com.mustakimridoymr.mrbot"
+
+[os.version]
+min = "2.0"
+target = "2.0"
+
+[components]
+[[components.interactive]]
+id = "com.mustakimridoymr.mrbot.main"
+runtime-module = "/com.amazon.kepler.runtime.react_native_kepler_4@IReactNativeKepler_0"
+launch-type = "singleton"
+categories = ["com.amazon.category.main"]
+
+[processes]
+[[processes.group]]
+component-ids = ["com.mustakimridoymr.mrbot.main"]
