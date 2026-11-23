@@ -47,12 +47,12 @@ jobs:
         run: npm ci
 
       - name: Build release package
-        run: npm run build
+        run: npx react-native build-vega --build-type Release --target armv7 --build-number "$GITHUB_RUN_NUMBER"
 
       - name: Verify package output
         run: |
-          if ! find build -type f -name '*.vpkg' -print -quit | grep -q .; then
-            echo "Vega build completed without producing a .vpkg file." >&2
+          if [ ! -s build/armv7-release/mrbot-vega_armv7.vpkg ]; then
+            echo "Vega build did not produce the expected armv7 package." >&2
             exit 1
           fi
 
@@ -60,7 +60,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: mrbot-vega-vpkg
-          path: build/**/*.vpkg
+          path: build/armv7-release/mrbot-vega_armv7.vpkg
           if-no-files-found: error
           retention-days: 30
 

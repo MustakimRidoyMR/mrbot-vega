@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "react-native start",
-    "build": "react-native build-vega --build-type Release",
+    "build": "react-native build-vega --build-type Release --target armv7 --build-number 1",
     "build:debug": "react-native build-vega --build-type Debug"
   },
   "dependencies": {
